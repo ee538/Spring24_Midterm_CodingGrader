@@ -8,6 +8,20 @@ using ::testing::ElementsAreArray;
 //-----------------------------------------------------------------------------
 // Write some test cases for each function.
 //-----------------------------------------------------------------------------
+TEST(MyVector, PushFront) {
+  MyVector* v1 = new MyVector(1);
+  MyVector* v2 = new MyVector(*v1);
+  delete v1;
+  v1 = v2;
+  
+  v1->push_front(1);
+  EXPECT_EQ(v1->size(), 2);
+  EXPECT_EQ(v1->at(0), 1);
+  EXPECT_EQ(v1->at(2), -1);
+  delete v1;
+}
+
+//-----------------------------------------------------------------------------
 TEST(MyVector, PushBackAndPopBack) {
   MyVector v;
   v.push_back(1);
